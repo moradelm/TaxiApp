@@ -6,4 +6,10 @@ public class Message {
 	private Reservation reservation;
 	private String message;
 	
+	@Override
+	public String toString() {
+		// TODO ajouter aprés
+		return "";
+	}
+	
 }
