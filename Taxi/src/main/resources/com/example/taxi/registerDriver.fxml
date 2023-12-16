@@ -10,29 +10,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxi.RegisterDriver">
-   <children>
-      <AnchorPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: /images/driver.jpg;">
-         <children>
-            <ImageView disable="true" fitHeight="401.0" fitWidth="602.0" layoutX="-1.0" opacity="0.9" pickOnBounds="true" style="visibility: 5;">
-               <image>
-                  <Image url="@../../../images/driver.jpg" />
-               </image></ImageView>
-            <TextField layoutX="108.0" layoutY="82.0" promptText="Enter your name" />
-            <TextField layoutX="108.0" layoutY="135.0" promptText="Enter your email" />
-            <TextField layoutX="108.0" layoutY="187.0" promptText="Enter your phone number" />
-            <TextField layoutX="108.0" layoutY="238.0" promptText="Enter your password" />
-            <TextField layoutX="394.0" layoutY="238.0" promptText="Confirm your password" />
-            <TextField layoutX="394.0" layoutY="188.0" promptText="Enter your car type " />
-            <ComboBox layoutX="394.0" layoutY="131.0" prefWidth="150.0" promptText="Choose gender" />
-            <DatePicker layoutX="394.0" layoutY="82.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter your birth date" />
-            <Text fill="#2c3c2d" layoutX="235.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register as Driver">
-               <font>
-                  <Font name="Serif Bold" size="18.0" />
-               </font>
-            </Text>
-            <Button layoutX="276.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #87FF65;" text="Submit" />
-         </children>
-      </AnchorPane>
-   </children>
+<?import javafx.scene.control.PasswordField?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taxi.RegisterDriver">
+   <AnchorPane layoutX="1.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: /images/driver.jpg;">
+      <ImageView fitHeight="401.0" fitWidth="602.0" layoutX="-1.0" opacity="0.9" pickOnBounds="true"
+                 style="visibility: 5;">
+         <Image url="@../../../images/driver.jpg"/>
+      </ImageView>
+      <TextField layoutX="108.0" layoutY="82.0" promptText="Enter your name"/>
+      <TextField layoutX="108.0" layoutY="135.0" promptText="Enter your email"/>
+      <TextField layoutX="108.0" layoutY="187.0" promptText="Enter your phone number"/>
+      <PasswordField layoutX="108.0" layoutY="238.0" promptText="Enter your password"/>
+      <PasswordField layoutX="394.0" layoutY="238.0" promptText="Confirm your password"/>
+      <TextField layoutX="394.0" layoutY="188.0" promptText="Enter your car type "/>
+      <ComboBox fx:id="sexe" layoutX="394.0" layoutY="131.0" prefWidth="150.0" promptText="sexe"
+                onAction="#handleComboBoxClick"/>
+      <DatePicker layoutX="394.0" layoutY="82.0" prefHeight="25.0" prefWidth="149.0"
+                  promptText="Enter your birth date"/>
+      <Text fill="#2c3c2d" layoutX="235.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0"
+            text="Register as Driver">
+         <font>
+            <Font name="Serif Bold" size="18.0"/>
+         </font>
+      </Text>
+      <Button layoutX="276.0" layoutY="315.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0"
+              style="-fx-background-color: #87FF65;" text="Submit"/>
+   </AnchorPane>
 </AnchorPane>

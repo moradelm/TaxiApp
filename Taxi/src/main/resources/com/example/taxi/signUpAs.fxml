@@ -8,27 +8,37 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxi.SignUpAs">
-   <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <Text layoutX="208.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join as a client or driver" wrappingWidth="201.47000122070312">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taxi.SignUpAs">
+   <Pane prefHeight="400.0" prefWidth="600.0">
+      <Text layoutX="208.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join as a client or driver"
+            wrappingWidth="201.47000122070312">
+         <font>
+            <Font name="Serif Regular" size="18.0"/>
+         </font>
+      </Text>
+      <BorderPane layoutX="38.0" layoutY="113.0" prefHeight="200.0" prefWidth="209.0">
+         <center>
+            <RadioButton mnemonicParsing="false" prefHeight="0.0" prefWidth="209.0"
+                         text="I’m a driver, looking for work" BorderPane.alignment="CENTER"
+                         onAction="#handleRadioButtonAction" fx:id="driverRadioButton">
                <font>
-                  <Font name="Serif Regular" size="18.0" />
+                  <Font name="Serif Bold" size="14.0"/>
                </font>
-            </Text>
-            <BorderPane layoutX="40.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <RadioButton mnemonicParsing="false" prefHeight="140.0" prefWidth="175.0" text="I'm client " BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
-            <BorderPane layoutX="370.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <RadioButton mnemonicParsing="false" prefHeight="141.0" prefWidth="175.0" style="-fx-background-color: ffff;" text="I'm a driver" BorderPane.alignment="CENTER" />
-               </center>
-            </BorderPane>
-            <Button layoutX="190.0" layoutY="342.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" style="-fx-background-color: #87FF65;" text="Join as " />
-         </children>
-      </Pane>
-   </children>
+            </RadioButton>
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="374.0" layoutY="113.0" prefHeight="200.0" prefWidth="201.0">
+         <center>
+            <RadioButton mnemonicParsing="false" prefHeight="0.0" prefWidth="200.0" text="I'm a client"
+                         BorderPane.alignment="CENTER" onAction="#handleRadioButtonAction" fx:id="clientRadioButton">
+               <font>
+                  <Font name="Serif Bold" size="14.0"/>
+               </font>
+            </RadioButton>
+         </center>
+      </BorderPane>
+      <Button fx:id="joinButton" onAction="#JoinButtonAction" layoutX="216.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0"
+              prefWidth="186.0" style="-fx-background-color: #87FF65;" text="Join as " />
+   </Pane>
 </AnchorPane>

@@ -9,30 +9,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taxi.RegisterClient">
-   <children>
-      <AnchorPane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: #DBE8D8;">
-         <children>
-            <ImageView fitHeight="401.0" fitWidth="290.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/registerClient.jpg" />
-               </image>
-            </ImageView>
-            <TextField layoutX="367.0" layoutY="72.0" prefHeight="25.0" prefWidth="169.0" promptText="Full name" />
-            <TextField layoutX="367.0" layoutY="119.0" prefHeight="25.0" prefWidth="169.0" promptText="Email" />
-            <TextField layoutX="367.0" layoutY="161.0" prefHeight="25.0" prefWidth="169.0" promptText="Phone Number" />
-            <TextField layoutX="367.0" layoutY="208.0" prefHeight="25.0" prefWidth="169.0" promptText="Password" />
-            <TextField layoutX="367.0" layoutY="253.0" prefHeight="25.0" prefWidth="169.0" promptText="Confirm password" />
-            <TextField layoutX="367.0" layoutY="301.0" prefHeight="25.0" prefWidth="72.0" promptText="City" />
-            <ComboBox layoutX="458.0" layoutY="301.0" prefHeight="25.0" prefWidth="78.0" promptText="Sexe" />
-            <Text layoutX="373.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register as a client" wrappingWidth="157.4700927734375">
-               <font>
-                  <Font name="Serif Regular" size="18.0" />
-               </font>
-            </Text>
-            <Button layoutX="426.0" layoutY="349.0" mnemonicParsing="false" style="-fx-background-color: #87FF65;" text="Submit" />
-         </children>
-      </AnchorPane>
-   </children>
+<?import javafx.scene.control.PasswordField?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taxi.RegisterClient">
+   <AnchorPane prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: #DBE8D8;">
+      <ImageView fitHeight="401.0" fitWidth="290.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../../images/registerClient.jpg"/>
+      </ImageView>
+      <TextField layoutX="367.0" layoutY="72.0" prefHeight="25.0" prefWidth="169.0" promptText="Full name"/>
+      <TextField layoutX="367.0" layoutY="119.0" prefHeight="25.0" prefWidth="169.0" promptText="Email"/>
+      <TextField layoutX="367.0" layoutY="161.0" prefHeight="25.0" prefWidth="169.0" promptText="Phone Number"/>
+      <PasswordField layoutX="367.0" layoutY="208.0" prefHeight="25.0" prefWidth="169.0" promptText="Password"/>
+      <PasswordField layoutX="367.0" layoutY="253.0" prefHeight="25.0" prefWidth="169.0" promptText="Confirm password"/>
+      <TextField layoutX="367.0" layoutY="301.0" prefHeight="25.0" prefWidth="72.0" promptText="City"/>
+      <ComboBox fx:id="sexe" layoutX="458.0" layoutY="301.0" onAction="#handleComboBoxClick" prefHeight="25.0"
+                prefWidth="78.0" promptText="Sexe"/>
+      <Text layoutX="373.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register as a client"
+            wrappingWidth="157.4700927734375">
+         <font>
+            <Font name="Serif Regular" size="18.0"/>
+         </font>
+      </Text>
+      <Button layoutX="426.0" layoutY="349.0" mnemonicParsing="false" style="-fx-background-color: #87FF65;"
+              text="Submit"/>
+   </AnchorPane>
 </AnchorPane>
