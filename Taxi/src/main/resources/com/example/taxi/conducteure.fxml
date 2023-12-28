@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="667.0" style="-fx-background-color: #f5ebe0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="-8.0" prefHeight="400.0" prefWidth="194.0" style="-fx-background-color: #99F7CF;">
+         <children>
+            <ImageView fitHeight="76.0" fitWidth="71.0" layoutX="54.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/profile.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="52.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hamza El Aloui">
+               <font>
+                  <Font name="Serif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9ddb2" height="77.0" layoutX="14.0" layoutY="137.0" opacity="0.54" stroke="#6d7575" strokeType="INSIDE" width="36.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9ddb2" height="77.0" layoutX="67.0" layoutY="137.0" opacity="0.54" stroke="#6b6666" strokeType="INSIDE" width="43.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9ddb2" height="77.0" layoutX="125.0" layoutY="137.0" opacity="0.54" stroke="#6b6666" strokeType="INSIDE" width="36.0" />
+            <ImageView fitHeight="26.0" fitWidth="20.0" layoutX="22.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/star.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="21.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.9">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Rating" wrappingWidth="36.0">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="75.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/taxi.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="78.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="126">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="72.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Tripes" />
+            <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="127.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/hands.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="139.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="129.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="years" />
+            <AnchorPane layoutX="14.0" layoutY="241.0" prefHeight="38.0" prefWidth="35.0">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/wallet.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="23.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logout.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="23.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/car.png" />
+               </image>
+            </ImageView>
+            <Text fill="#4d3d3d" layoutX="67.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MyWallet">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4d3d3d" layoutX="74.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Preferences">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4d3d3d" layoutX="67.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LogOut">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="464.0" prefHeight="400.0" prefWidth="203.0" style="-fx-background-color: #99F7CF;">
+         <children>
+            <Text fill="#4d3d3d" layoutX="27.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick Up Passenger">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="51.0" fitWidth="36.0" layoutX="14.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/patient.png" />
+               </image>
+            </ImageView>
+            <Text fill="#070606" layoutX="60.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Morad">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button layoutX="14.0" layoutY="131.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: green;" text="Accept" textFill="#d4ddc3" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="93.0" layoutY="131.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: red;" text="Reject" textFill="#d4ddc3" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="5.0" layoutY="165.0" prefHeight="200.0" prefWidth="194.0" style="-fx-background-image: #F2F2EF;">
+               <children>
+                  <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="1.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/arrival.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutX="45.0" layoutY="134.0" prefHeight="25.0" prefWidth="128.0" text="daoudiat" />
+                  <Text fill="#6b6666" layoutX="51.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destiniation" />
+                  <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="1.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/gps.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutX="45.0" layoutY="50.0" prefHeight="25.0" prefWidth="128.0" text="sidi abbad" />
+                  <Text fill="#6b6666" layoutX="50.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="pickup point" />
+                  <Line endX="5.5" endY="48.0" layoutX="14.0" layoutY="85.0" startX="5.5" startY="-1.94921875" strokeDashOffset="50.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <AnchorPane layoutX="183.0" layoutY="-1.0" prefHeight="400.0" prefWidth="283.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="284.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/map.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Accordion />
+   </children>
+</AnchorPane>
