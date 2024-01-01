@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 22, 2023 at 07:48 PM
+-- Generation Time: Dec 29, 2023 at 10:26 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -24,22 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `avis`
---
-
-DROP TABLE IF EXISTS `avis`;
-CREATE TABLE IF NOT EXISTS `avis` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `idClient` int NOT NULL,
-  `idConducteur` int NOT NULL,
-  `commentaire` varchar(50) NOT NULL,
-  `etoiles` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `client`
 --
 
@@ -56,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 DROP TABLE IF EXISTS `conducteur`;
 CREATE TABLE IF NOT EXISTS `conducteur` (
-  `etat` tinyint(1) NOT NULL
+  `cartype` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -74,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `datedepart` date NOT NULL,
   `datearrive` date NOT NULL,
   `information` varchar(50) NOT NULL,
+  `numbrplaces` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -86,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int DEFAULT NULL,
-  `nom` varchar(100) NOT NULL,
+  `fullname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `telephone` varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -94,22 +80,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `datenaissance` date NOT NULL,
   `sexe` varchar(20) NOT NULL,
   `city` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `voiture`
---
-
-DROP TABLE IF EXISTS `voiture`;
-CREATE TABLE IF NOT EXISTS `voiture` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `idConducteur` int NOT NULL,
-  `matricule` varchar(50) NOT NULL,
-  `marque` varchar(50) NOT NULL,
-  `etat` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
