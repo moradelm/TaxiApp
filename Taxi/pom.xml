@@ -37,6 +37,21 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.23</version>
+    </dependency>
+      <dependency>
+          <groupId>org.webjars.npm</groupId>
+          <artifactId>prismarine-auth</artifactId>
+          <version>1.4.1</version>
+      </dependency>
+      <dependency>
+          <groupId>com.github.snuffix</groupId>
+          <artifactId>Animated-Download-Button</artifactId>
+          <version>1.2</version>
+      </dependency>
   </dependencies>
 
   <build>

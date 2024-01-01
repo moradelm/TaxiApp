@@ -61,6 +61,7 @@ public class SignUpAs {
                 Stage signUpAsStage = (Stage) joinButton.getScene().getWindow();
                 signUpAsStage.close();
 
+
             }
 
         }catch (IOException e){
@@ -68,4 +69,5 @@ public class SignUpAs {
         }
 
     }
+
 }

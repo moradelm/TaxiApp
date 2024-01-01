@@ -4,7 +4,7 @@ import java.sql.*;
 public class BdConnexion {
 
 		private String driver="com.mysql.jdbc.Driver";
-		private String url="jdbc:mysql://localhost:3306/taxiapp";
+		private String url="jdbc:mysql://localhost:3306/test";
 		private String user="root";
 		private String pwd="";
 		private Connection con;
@@ -22,19 +22,22 @@ public class BdConnexion {
 				System.out.println("Probleme conn");
 			}
 		}
-		
+	    public Connection getConnection() {
+		return con;
+	    }
+
 		public  int executerAction(String s)  {
 			int nbr=0;
 			try {
 				nbr=st.executeUpdate(s);
-				
+
 			}catch(SQLException e) {
 				System.out.println("Probleme req");
 
 			}
 			return nbr;
 		}
-		
+
 		public ResultSet executerSelect(String s) {
 			ResultSet rs=null;
 			try {
