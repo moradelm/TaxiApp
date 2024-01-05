@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DriverService {
     private BdConnexion bdConnexion;
@@ -55,6 +57,27 @@ public class DriverService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Driver> getAllDrivers2() {
+        List<Driver> drivers = new ArrayList<>();
+        String query = "SELECT * FROM utilisateur JOIN driver ON utilisateur.id = driver.userId";
+
+        try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Driver driver = new Driver();
+                driver.setNom(resultSet.getString("fullname"));
+                driver.setCarType(resultSet.getString("cartype"));
+
+
+                drivers.add(driver);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return drivers;
     }
 
 

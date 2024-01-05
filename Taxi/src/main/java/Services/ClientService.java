@@ -71,6 +71,50 @@ public class ClientService {
         return clients;
     }
 
+    public Client getClient(int id) {
+        Client client=null;
+        String query = "SELECT * FROM utilisateur join client on id=userId WHERE role = 'client' and userId=id";
+
+        try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                client = new Client();
+                client.setNom(resultSet.getString("fullname"));
+                client.setEmail(resultSet.getString("email"));
+                client.setTelephone(resultSet.getString("telephone"));
+                client.setCity(resultSet.getString("city"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+
+    public Client updateClient(Client currentClient) {
+        Client client = null;
+        String query = "UPDATE utilisateur " +
+                "SET fullname = ?, email = ?, telephone = ?, city = ? " +
+                "WHERE role = 'client' AND id = 5";
+
+        try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            preparedStatement.setString(1, currentClient.getNom());
+            preparedStatement.setString(2, currentClient.getEmail());
+            preparedStatement.setString(3, currentClient.getTelephone());
+            preparedStatement.setString(4, currentClient.getCity());
+
+            int result = preparedStatement.executeUpdate();
+            if (result == 1) {
+                client = currentClient;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+
+
 
 
 }
