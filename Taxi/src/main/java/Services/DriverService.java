@@ -80,6 +80,24 @@ public class DriverService {
         }
         return drivers;
     }
-
+    
+    public Driver getDriver(int id) {
+        Driver driver=null;
+        String query = "SELECT * FROM utilisateur WHERE role = 'driver' and id=?";
+        try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                driver = new Driver();
+                driver.setNom(resultSet.getString("fullname"));
+                driver.setEmail(resultSet.getString("email"));
+                driver.setTelephone(resultSet.getString("telephone"));
+                driver.setCity(resultSet.getString("city"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return driver;
+    }
 
 }
