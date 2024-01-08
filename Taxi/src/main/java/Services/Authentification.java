@@ -9,6 +9,7 @@ import java.sql.SQLException;
 public class Authentification {
     private BdConnexion bdConnexion;
     private String loggedInEmail;
+    public  static  int id;
 
     public Authentification() {
         this.bdConnexion = new BdConnexion();
@@ -24,6 +25,9 @@ public class Authentification {
 
             if (resultSet.next()) {
                 loggedInEmail = email;
+                id=resultSet.getInt("id");
+                System.out.println("Logged-in : " + id);
+
                 System.out.println("Logged-in email: " + loggedInEmail);
                 return true;
             } else {

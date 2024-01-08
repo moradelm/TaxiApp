@@ -71,6 +71,52 @@ public class ClientService {
         return clients;
     }
 
+    public Client getClient(int id) {
+        Client client=null;
+        String query = "SELECT * FROM utilisateur WHERE role = 'client' and id=?";
+
+        try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                client = new Client();
+                client.setNom(resultSet.getString("fullname"));
+                client.setEmail(resultSet.getString("email"));
+                client.setTelephone(resultSet.getString("telephone"));
+                client.setCity(resultSet.getString("city"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+
+    public Client updateClient(Client currentClient) {
+        Client client = null;
+        String query = "UPDATE utilisateur " +
+                "SET fullname = ?, email = ?, telephone = ?, city = ? " +
+                "WHERE role = 'client' AND id = ?";
+
+        try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            preparedStatement.setString(1, currentClient.getNom());
+            preparedStatement.setString(2, currentClient.getEmail());
+            preparedStatement.setString(3, currentClient.getTelephone());
+            preparedStatement.setString(4, currentClient.getCity());
+            preparedStatement.setInt(5,currentClient.getId());
+
+            int result = preparedStatement.executeUpdate();
+            if (result == 1) {
+                client = currentClient;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+
+
 
 
 }
