@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import Services.Authentification;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -31,8 +32,8 @@ public class Reservation {
 	private TextField lieu_arriv;
 	@FXML 
 	private TextField prix;
-	private int idclient=1;
-	private int idcond=1;
+	private int idclient=Authentification.id;
+	private int idcond=ClientInterface.DriverId;
 	
 
 	public void InsertRese() {

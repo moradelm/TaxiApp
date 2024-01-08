@@ -150,7 +150,7 @@ public class ClientInterface {
 
 
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateClient.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("Reservation.fxml"));
                         Parent root = loader.load();
 
                         Scene scene = new Scene(root);
