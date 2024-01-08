@@ -1,6 +1,7 @@
 package com.example.taxi;
 
 import Model.Client;
+import Services.Authentification;
 import Services.ClientService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,18 +30,24 @@ public class UpdateClient {
     private Client currentClient;
     private ClientService clientService;
 
+    private int id=Authentification.id;
+
+
+
     public UpdateClient() {
         this.clientService = new ClientService();
     }
 
     @FXML
     public void initialize() {
-        currentClient  = clientService.getClient(currentClient.getId());
+
+        currentClient = clientService.getClient(id);
+        System.out.println("Logged-in user ID: " + id);
+     
         if (currentClient != null) {
             System.out.println("Client information is available");
             afficherInfoClient(currentClient);
         } else {
-
             System.out.println("Client information is not available");
         }
     }
@@ -54,11 +61,13 @@ public class UpdateClient {
     }
     @FXML
     public void handleSubmitButtonAction() {
+
         submitBut.setOnAction(event -> {
             currentClient.setNom(nameField.getText());
             currentClient.setEmail(emailField.getText());
             currentClient.setTelephone(phoneField.getText());
             currentClient.setCity(cityField.getText());
+            currentClient.setId(id);
 
             if (currentClient != null) {
                 Client updatedClient = clientService.updateClient(currentClient);

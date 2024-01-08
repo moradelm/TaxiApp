@@ -73,9 +73,10 @@ public class ClientService {
 
     public Client getClient(int id) {
         Client client=null;
-        String query = "SELECT * FROM utilisateur join client on id=userId WHERE role = 'client' and userId=id";
+        String query = "SELECT * FROM utilisateur WHERE role = 'client' and id=?";
 
         try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
+            preparedStatement.setInt(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 client = new Client();
@@ -95,13 +96,14 @@ public class ClientService {
         Client client = null;
         String query = "UPDATE utilisateur " +
                 "SET fullname = ?, email = ?, telephone = ?, city = ? " +
-                "WHERE role = 'client' AND id = 5";
+                "WHERE role = 'client' AND id = ?";
 
         try (PreparedStatement preparedStatement = bdConnexion.getConnection().prepareStatement(query)) {
             preparedStatement.setString(1, currentClient.getNom());
             preparedStatement.setString(2, currentClient.getEmail());
             preparedStatement.setString(3, currentClient.getTelephone());
             preparedStatement.setString(4, currentClient.getCity());
+            preparedStatement.setInt(5,currentClient.getId());
 
             int result = preparedStatement.executeUpdate();
             if (result == 1) {

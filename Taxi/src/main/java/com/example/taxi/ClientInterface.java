@@ -71,7 +71,7 @@ public class ClientInterface {
         pane.setStyle("-fx-background-color: white;");
 
 
-        String imagesPath = "file:src/main/resources/images/";
+        String imagesPath = "file:Taxi/src/main/resources/images/";
         String[] iconUrls = {
                 imagesPath + "car1.png",
                 imagesPath + "car2.png",

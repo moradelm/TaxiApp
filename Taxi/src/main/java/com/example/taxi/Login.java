@@ -63,7 +63,7 @@ public class Login {
             if ("driver".equals(userType)) {
                 fxmlFile = "driverInterface.fxml";
             } else if ("client".equals(userType)) {
-                fxmlFile = "khawlainterface.fxml";
+                fxmlFile = "ClientInterface.fxml";
             } else {
                 System.out.println("Unknown user type");
                 return;
