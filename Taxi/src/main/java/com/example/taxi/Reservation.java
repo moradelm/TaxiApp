@@ -113,7 +113,7 @@ public class Reservation {
         // Create columns based on ResultSetMetaData
         String selectQuery = "SELECT id,lieu_depa FROM reservation where idClient=? ";
     	BdConnexion bd=new BdConnexion();
-    	bd.cn().prepareStatement(selectQuery);
+    	bd.getConnection().prepareStatement(selectQuery);
             try (PreparedStatement preparedStatement = bd.getConnection().prepareStatement(selectQuery)) {
             	preparedStatement.setInt(1, idclient);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
