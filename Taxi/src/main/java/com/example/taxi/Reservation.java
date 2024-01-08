@@ -1,4 +1,5 @@
 package com.example.taxi;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,12 +10,23 @@ import Model.Driver;
 import Services.Authentification;
 import Services.ClientService;
 import Services.DriverService;
+import application.BdConnexion;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Reservation {
        
     @FXML
@@ -32,6 +44,18 @@ public class Reservation {
     private TextField lieu_arriv;
     @FXML 
     private TextField prix;
+    
+    @FXML
+    private TableView<ObservableList<String>> listeReserv;
+
+    @FXML
+    private void initialize() {
+        try {
+			setupTableView();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
     private int idclient=Authentification.id;
     private int idcond=ClientInterface.DriverId;
     private DriverService driverService;
@@ -55,6 +79,17 @@ public class Reservation {
           clt=clientService.getClient(idclient);
           dr=driverService.getDriver(idcond);
           myAlert(AlertType.INFORMATION, "Reservation made", "Client: " + clt.getNom() + "\n Driver: " + dr.getNom()+"\nPrix:"+Double.parseDouble(prix.getText()));
+          try {
+        	  FXMLLoader loader = new FXMLLoader(getClass().getResource("MyReservations.fxml"));
+			Parent root = loader.load();
+            Scene scene = new Scene(root);
+            //Stage stage = (Stage) acceptButton.getScene().getWindow();
+//            stage.setScene(scene);
+//            stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
        }
        
@@ -67,4 +102,64 @@ public class Reservation {
         alert.setContentText(msg);
         alert.showAndWait();
     }
+    
+    private void setupTableView() throws SQLException {
+        // Retrieve data from the database
+        ObservableList<ObservableList<String>> data = fetchDataFromDatabase();
+
+        // Populate the TableView with the data
+        listeReserv.setItems(data);
+
+        // Create columns based on ResultSetMetaData
+        String selectQuery = "SELECT id,lieu_depa FROM reservation where idClient=? ";
+    	BdConnexion bd=new BdConnexion();
+    	bd.cn().prepareStatement(selectQuery);
+            try (PreparedStatement preparedStatement = bd.getConnection().prepareStatement(selectQuery)) {
+            	preparedStatement.setInt(1, idclient);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    var metaData = resultSet.getMetaData();
+                    int columnCount = metaData.getColumnCount();
+
+                    for (int i = 1; i <= columnCount; i++) {
+                        final int columnIndex = i - 1;
+                        TableColumn<ObservableList<String>, String> column = new TableColumn<>(metaData.getColumnName(i));
+                        column.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get(columnIndex)));
+                        listeReserv.getColumns().add(column);
+                    }
+                }
+            }
+         catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ObservableList<ObservableList<String>> fetchDataFromDatabase() throws SQLException {
+        ObservableList<ObservableList<String>> data = FXCollections.observableArrayList();
+        String selectQuery = "SELECT id,lieu_depa FROM reservation where idClient=? ";
+    	BdConnexion bd=new BdConnexion();
+    	bd.getConnection().prepareStatement(selectQuery);
+            try (PreparedStatement preparedStatement = bd.getConnection().prepareStatement(selectQuery)) {
+            	preparedStatement.setInt(1, idclient);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    // Get metadata to dynamically fetch column names
+                    var metaData = resultSet.getMetaData();
+                    int columnCount = metaData.getColumnCount();
+
+                    while (resultSet.next()) {
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for (int i = 1; i <= columnCount; i++) {
+                            row.add(resultSet.getString(i));
+                        }
+                        data.add(row);
+                    }
+                }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
 }
