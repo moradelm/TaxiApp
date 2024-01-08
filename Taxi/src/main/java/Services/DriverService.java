@@ -59,7 +59,7 @@ public class DriverService {
         }
     }
 
-    public List<Driver> getAllDrivers2() {
+    public List<Driver> getAllDrivers() {
         List<Driver> drivers = new ArrayList<>();
         String query = "SELECT * FROM utilisateur JOIN driver ON utilisateur.id = driver.userId";
 
@@ -70,6 +70,7 @@ public class DriverService {
                 Driver driver = new Driver();
                 driver.setNom(resultSet.getString("fullname"));
                 driver.setCarType(resultSet.getString("cartype"));
+                driver.setId(resultSet.getInt("id"));
 
 
                 drivers.add(driver);

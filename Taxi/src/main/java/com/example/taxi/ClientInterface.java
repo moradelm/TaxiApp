@@ -30,7 +30,7 @@ public class ClientInterface {
     @FXML
     private Button updatePr;
 
-
+    public static  int DriverId;
     private DriverService driverService;
 
     public ClientInterface() {
@@ -43,7 +43,7 @@ public class ClientInterface {
     }
 
     public void afficherTousConducteurs() {
-        List<Driver> drivers = driverService.getAllDrivers2();
+        List<Driver> drivers = driverService.getAllDrivers();
 
         double layoutX = 75.0;
         double layoutY = 150.0;
@@ -140,11 +140,17 @@ public class ClientInterface {
             ButtonType noButton = new ButtonType("No");
             alert.getButtonTypes().setAll(yesButton, noButton);
 
+
             alert.showAndWait().ifPresent(buttonType -> {
                 if (buttonType == yesButton) {
+                    DriverId=conducteur.getId();
+                    System.out.println("Driver accepted id : " + DriverId);
                     System.out.println("Driver accepted : " + conducteur.getNom());
+
+
+
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReservationPage.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateClient.fxml"));
                         Parent root = loader.load();
 
                         Scene scene = new Scene(root);
